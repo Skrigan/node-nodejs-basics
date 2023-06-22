@@ -12,8 +12,8 @@ const read = async () => {
   stream.on("data", (chunk) => {
     process.stdout.write(chunk);
   });
-  stream.on("error", () => {
-    throw new Error("FS operation failed");
+  stream.on("error", (err) => {
+    throw new Error("Failed to read file:", err);
   });
 };
 
